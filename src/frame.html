@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Frame</title>
+
+    <script>
+        window.addEventListener('message', function (event) {
+            var mainWindow = event.source;
+            var result = '';
+
+            try {
+                response = eval(event.data);
+
+                result = {
+                    response,
+                };
+            } catch (error) {
+                result = {
+                    error: error?.message ?? 'Unknown error',
+                };
+            }
+
+            mainWindow.postMessage(result, event.origin);
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

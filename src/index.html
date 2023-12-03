@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arena</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            font-family: sans-serif;
+            background: radial-gradient(farthest-corner at 87% 34%, #cbe9ff5e 0%, transparent 90%),
+                radial-gradient(farthest-corner at 10% 10%, #56242c 0%, #122434 100%);
+        }
+        textarea {
+            background: radial-gradient(
+                    circle farthest-side at 82% 17%,
+                    rgba(169, 220, 255, 0.11) 0%,
+                    rgba(5, 17, 53, 0) 30%
+                ),
+                radial-gradient(
+                    at 39% 57%,
+                    rgb(6, 2, 20) 0%,
+                    rgb(31, 34, 44) 95%
+                );
+            color: rgb(141 255 193);
+            text-shadow: rgb(39 108 249 / 71%) 1px 0px 1px,
+                rgb(228 142 30 / 87%) -1px 0px 1px;
+        }
+
+        #sandboxed {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="code" rows="30" cols="80" spellcheck="false">
+// Example which acts very randomly.
+output.turn = -1.0 + 2.0 * Math.random();
+output.forward = -1.0 + 2.0 * Math.random();
+output.shoot = Math.random() > 0.8;</textarea>
+    <button id="run">Run</button>
+    <iframe sandbox="allow-scripts" id="sandboxed" src="frame.html"></iframe>
+    <div id="output"></div>
+
+    <script src="main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+    "name": "arena",
+    "version": "1.0.0",
+    "description": "A little coding game.",
+    "main": "index.js",
+    "scripts": {
+        "build": "cross-env NODE_ENV=production ts-node webpack.ts",
+        "watch": "cross-env NODE_ENV=development ts-node webpack.ts --watch"
+    },
+    "author": "Sam Driver",
+    "devDependencies": {
+        "@types/node": "^18.11.x",
+        "@webgpu/types": "^0.1.26",
+        "clean-webpack-plugin": "^4.0.x",
+        "copy-webpack-plugin": "^11.0.0",
+        "cross-env": "^7.0.x",
+        "http-server": "^14.1.x",
+        "ts-loader": "^9.4.x",
+        "ts-node": "^10.9.x",
+        "typescript": "^4.9.x",
+        "webpack": "^5.75.x"
+    },
+    "dependencies": {
+        "wgpu-matrix": "^2.5.1"
+    }
+}
