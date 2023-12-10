@@ -1,11 +1,11 @@
-import BrainOutput from "./brainOutput";
+import DroneInput from "./droneInput";
 
 export default class SandboxBrain {
 
     frame: HTMLIFrameElement;
 
-    promise: Promise<BrainOutput>;
-    resolvePromise: (value: BrainOutput) => void;
+    promise: Promise<DroneInput>;
+    resolvePromise: (value: DroneInput) => void;
     rejectPromise: (reason?: any) => void;
 
     boundReceiveMessage: (event: MessageEvent) => void;
@@ -21,9 +21,9 @@ export default class SandboxBrain {
         window.removeEventListener("message", this.boundReceiveMessage);
     }
 
-    run(code: string): Promise<BrainOutput> {
+    run(code: string): Promise<DroneInput> {
 
-        this.promise = new Promise<BrainOutput>((resolve, reject) => {
+        this.promise = new Promise<DroneInput>((resolve, reject) => {
             this.resolvePromise = resolve;
             this.rejectPromise = reject;
         });
@@ -53,7 +53,7 @@ export default class SandboxBrain {
 
         console.log('Got result from sandbox:', event.data?.response);
 
-        const result = new BrainOutput(
+        const result = new DroneInput(
             event.data?.response?.turn ?? 0,
             event.data?.response?.forward ?? 0,
             event.data?.response?.shoot ?? false,
@@ -63,6 +63,7 @@ export default class SandboxBrain {
     }
 
     buildCode(userCode: string): string {
+        // TODO: Use real 'input' information.
         return `
             const input = {
                 identifiedItems: [

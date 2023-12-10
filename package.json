@@ -10,6 +10,7 @@
     "author": "Sam Driver",
     "devDependencies": {
         "@types/node": "^18.11.x",
+        "@types/uuid": "^9.0.7",
         "@webgpu/types": "^0.1.26",
         "clean-webpack-plugin": "^4.0.x",
         "copy-webpack-plugin": "^11.0.0",
@@ -21,6 +22,7 @@
         "webpack": "^5.75.x"
     },
     "dependencies": {
+        "uuid": "^9.0.1",
         "wgpu-matrix": "^2.5.1"
     }
 }
